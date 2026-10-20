@@ -8,6 +8,9 @@ function calcularDesconto (mensalidade, desconto) {
 function somaTripla (numero1, numero2, numero3) {
     return (numero1 + numero2 + numero3);
 }
+function calcularFaturamentoLiquido (alunos, mensalidade, desconto){
+    return (mensalidade - (mensalidade * (desconto / 100))) * alunos
+}
 
 const mensalidadeLive = 199;
 const mensalidadeHybrid = 130;
@@ -18,9 +21,9 @@ const alunosHybrid = 8;
 const descontoLive = 10;
 const descontoHybrid = 15;
 
-const faturamentoLive = calcularFaturamento(alunosLive,mensalidadeLive) - (calcularDesconto(mensalidadeLive, descontoLive) * alunosLive);
+const faturamentoLive = calcularFaturamentoLiquido(alunosLive, mensalidadeLive, descontoLive);
 const faturamentoRecorded = calcularFaturamento(alunosRecorded,mensalidadeRecorded);
-const faturamentoHybrid = calcularFaturamento(alunosHybrid,mensalidadeHybrid) - (calcularDesconto(mensalidadeHybrid, descontoHybrid) * alunosHybrid);
+const faturamentoHybrid = calcularFaturamentoLiquido(alunosHybrid, mensalidadeHybrid, descontoHybrid);
 
 console.log(`
     ===== SAYLORS ENGLISH SCHOOL =====
